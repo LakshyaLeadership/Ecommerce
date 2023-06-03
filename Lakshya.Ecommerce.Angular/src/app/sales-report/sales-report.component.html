@@ -1,0 +1,18 @@
+<!-- grid.component.html -->
+<dx-data-grid>
+  <!-- Define grid columns -->
+  <dxi-column dataField="column1"></dxi-column>
+  <dxi-column dataField="column2"></dxi-column>
+  <dxi-column dataField="column3"></dxi-column>
+
+  <!-- Define grid data -->
+  <dxo-datasource [store]="yourDataSource"> </dxo-datasource>
+
+  <!-- Add other necessary configurations for sorting, searching, and pagination -->
+  <!-- Enable sorting and searching -->
+  <dxo-sorting mode="multiple"></dxo-sorting>
+  <dxo-search-panel visible="true"></dxo-search-panel>
+
+   <!-- Enable pagination -->
+   <dxo-paging [enabled]="true" [pageSize]="10" [pageIndex]="0"></dxo-paging>
+</dx-data-grid>
