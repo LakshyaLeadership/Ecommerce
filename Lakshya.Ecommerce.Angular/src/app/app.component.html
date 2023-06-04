@@ -1,13 +1,14 @@
-<!-- grid.component.html -->
-<dx-data-grid>
-  <!-- Define grid columns -->
-  <dxi-column dataField="column1"></dxi-column>
-  <dxi-column dataField="column2"></dxi-column>
-  <dxi-column dataField="column3"></dxi-column>
+<ng-container *ngIf="isAuthenticated(); else unauthenticated">
+  <app-side-nav-outer-toolbar title="{{appInfo.title}}">
+    <router-outlet></router-outlet>
+    <app-footer>
+      Copyright © 2011-{{appInfo.currentYear}} {{appInfo.title}} Inc.
+      <br/>
+      All trademarks or registered trademarks are property of their respective owners.
+    </app-footer>
+  </app-side-nav-outer-toolbar>
+</ng-container>
 
-  <!-- Define grid data -->
-  <dxo-datasource [store]="yourDataSource">
-  </dxo-datasource>
-
-  <!-- Add other necessary configurations for sorting, searching, and pagination -->
-</dx-data-grid>
+<ng-template #unauthenticated>
+  <app-unauthenticated-content></app-unauthenticated-content>
+</ng-template>
