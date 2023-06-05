@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="FastReport.Core" Version="2023.2.17-demo" />
   </ItemGroup>
 
   <ItemGroup>
