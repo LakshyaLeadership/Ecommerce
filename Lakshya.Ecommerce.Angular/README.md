@@ -1,27 +1,41 @@
-# LakshyaEcommerceAngular
+Sure! Here's an updated version of the overview using markdown symbols:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.4.
+## Project Overview
 
-## Development server
+1. **Ecommerce Web Application**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+   - Description: A web application for an ecommerce platform.
+   - Technologies: ASP.NET Core, Angular, SQL Server.
+   - Features: User authentication, product catalog, shopping cart, order management, payment integration, and user reviews.
+   - Responsibilities: Developed backend API using ASP.NET Core, implemented frontend components using Angular, integrated with external payment gateway, and designed the database schema.
 
-## Code scaffolding
+2. **FastReports Integration**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+   - Description: Integration of FastReports reporting tool into the ecommerce application.
+   - Technologies: FastReports, C#, .NET Core.
+   - Features: Generating dynamic reports based on data retrieved from the API, exporting reports in various formats (PDF, Excel, etc.), and displaying reports to users.
+   - Responsibilities: Integrated FastReports into the application, designed report templates, implemented report generation logic, and configured data binding with the API.
 
-## Build
+3. **Sales Data Management**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   - Description: Module for managing sales data within the ecommerce application.
+   - Technologies: C#, .NET Core, Entity Framework Core, SQL Server.
+   - Features: CRUD operations for sales data, data validation, filtering, sorting, and pagination.
+   - Responsibilities: Designed and implemented the Sales entity and repository, created database seed data, implemented API endpoints for managing sales data, and ensured data integrity and security.
 
-## Running unit tests
+4. **CORS Configuration**
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   - Description: Configuring Cross-Origin Resource Sharing (CORS) in the API.
+   - Technologies: ASP.NET Core.
+   - Features: Enabling CORS to allow cross-origin requests from specified domains.
+   - Responsibilities: Configured CORS policies in the API to allow specific origins, HTTP methods, and headers, ensuring secure communication between the frontend and backend.
 
-## Running end-to-end tests
+## Additional Information
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- If running the Angular application on a port other than 4200, configure the CORS policy using the following code:
+  
+  ```csharp
+  app.UseCors(x => x.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+  ```
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+This provides a brief overview of the projects I worked on, including their descriptions, technologies used, features implemented, and my responsibilities within each project.
