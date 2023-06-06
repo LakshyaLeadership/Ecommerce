@@ -4,13 +4,13 @@ import { LoginFormComponent, ResetPasswordFormComponent, CreateAccountFormCompon
 import { AuthGuardService } from './shared/services';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { TasksComponent } from './pages/tasks/tasks.component';
+import { TasksComponent as SalesReport } from './pages/sales-report/tasks.component';
 import { DxDataGridModule, DxFormModule } from 'devextreme-angular';
 
 const routes: Routes = [
   {
-    path: 'tasks',
-    component: TasksComponent,
+    path: 'sales-report',
+    component: SalesReport,
     canActivate: [ AuthGuardService ]
   },
   {
@@ -21,6 +21,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [ AuthGuardService ]
+  },
+  {
+    path: 'change-password/:recoveryCode',
+    component: ChangePasswordFormComponent,
     canActivate: [ AuthGuardService ]
   },
   {
@@ -56,7 +61,7 @@ const routes: Routes = [
   declarations: [
     HomeComponent,
     ProfileComponent,
-    TasksComponent
+    SalesReport
   ]
 })
 export class AppRoutingModule { }

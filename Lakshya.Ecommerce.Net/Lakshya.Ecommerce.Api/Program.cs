@@ -1,3 +1,4 @@
+using FastReport.DataVisualization.Charting;
 using Lakshya.Ecommerce.Api.Controllers;
 using Lakshya.Ecommerce.Repositories;
 using Lakshya.Ecommerce.Services;
@@ -9,7 +10,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+  options.JsonSerializerOptions.PropertyNamingPolicy = null;
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -18,6 +23,7 @@ builder.Services.AddDbContext<EcommerceDbContext>(optionsBuilder => optionsBuild
 builder.Services.AddScoped<ISalesService, SalesService>();
 builder.Services.AddScoped<ISalesRepository, SalesRepository>();
 builder.Services.AddAutoMapper(typeof(Program).Assembly, typeof(SaleProfile).Assembly);
+
 var app = builder.Build();
 
 using var serviceScope = app.Services.CreateScope();
@@ -39,4 +45,8 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.UseCors(x => x.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+
+
 app.Run();
+

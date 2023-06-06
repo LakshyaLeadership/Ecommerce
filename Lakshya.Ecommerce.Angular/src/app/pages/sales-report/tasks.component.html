@@ -1,0 +1,41 @@
+<h2 class="content-block">Sales Report for 5th June to 7th June 2023</h2>
+
+<dx-data-grid
+  class="dx-card wide-card"
+  [dataSource]="dataSource"
+  [showBorders]="false"
+  [columnAutoWidth]="true"
+  [columnHidingEnabled]="true"
+>
+  <dxo-paging [pageSize]="5"></dxo-paging>
+  <dxo-pager [showPageSizeSelector]="true" [showInfo]="true"></dxo-pager>
+  <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+  <dxi-column dataField="Id" [width]="90" [hidingPriority]="4"> </dxi-column>
+  <!-- <dxi-column dataField="Date" caption="Date" [hidingPriority]="4">
+  </dxi-column> -->
+  <dxi-column
+    dataField="ProductName"
+    caption="Product"
+    [width]="1000"
+    [hidingPriority]="3"
+  >
+  </dxi-column>
+  <dxi-column
+    dataField="Quantity"
+    [width]="100"
+    caption="Quantity"
+    [hidingPriority]="2"
+    [allowSearch]="false"
+  >
+  </dxi-column>
+  <dxi-column
+    dataField="Amount"
+    [width]="100"
+    [allowSearch]="false"
+    caption="Amount"
+    [allowSorting]="false"
+    [hidingPriority]="1"
+  >
+  </dxi-column>
+</dx-data-grid>

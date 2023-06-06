@@ -1,11 +1,13 @@
 using Lakshya.Ecommerce.Services;
 using Lakshya.Ecommerce.Services.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lakshya.Ecommerce.Api.Controllers
 {
   [ApiController]
   [Route("api/sales")]
+  //[EnableCors("AbhiAllowsAllDuringDevelopment")]
   public class SalesController : ControllerBase
   {
     private readonly ISalesService _salesService;
