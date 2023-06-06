@@ -4,8 +4,8 @@ namespace Lakshya.Ecommerce.Services
 {
     public interface ISalesService
     {
-        Task<List<SaleModel>> GetSalesData(DateTime startDate, DateTime endDate);
-        string GenerateReport(List<SaleModel> salesData);
+        Task<List<SaleModel>> ShowReport(DateTime startDate, DateTime endDate);
+        string ExportAsPdf(List<SaleModel> salesData);
     }
 
 }

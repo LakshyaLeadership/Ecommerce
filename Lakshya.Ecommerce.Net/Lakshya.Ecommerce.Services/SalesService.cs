@@ -19,12 +19,12 @@ namespace Lakshya.Ecommerce.Services
       this.mapper = mapper;
     }
 
-    public async Task<List<SaleModel>> GetSalesData(DateTime startDate, DateTime endDate)
+    public async Task<List<SaleModel>> ShowReport(DateTime startDate, DateTime endDate)
     {
       return mapper.Map<List<SaleModel>>(await _salesRepository.GetSalesData(startDate, endDate).ConfigureAwait(false));
     }
 
-    public string GenerateReport(List<SaleModel> salesData)
+    public string ExportAsPdf(List<SaleModel> salesData)
     {
       var report = new Report();
       report.Load("SalesReportTemplate.frx");
