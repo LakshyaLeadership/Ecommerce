@@ -33,7 +33,7 @@ namespace Lakshya.Ecommerce.Services
       report.Prepare();
 
       var exportOptions = new PDFExport();
-      var reportFilePath = $"generated_report_{DateTime.UtcNow.Ticks}.pdf";
+      var reportFilePath = $"Sales_Report{DateTime.UtcNow.Ticks}.pdf";
       report.Export(exportOptions, reportFilePath);
       return reportFilePath;
     }
