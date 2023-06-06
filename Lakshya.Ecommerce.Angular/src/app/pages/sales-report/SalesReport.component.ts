@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { saveAs } from 'file-saver';
 @Component({
-  templateUrl: 'tasks.component.html',
+  templateUrl: 'SalesReport.component.html',
 })
 export class TasksComponent {
   dataSource: any;
