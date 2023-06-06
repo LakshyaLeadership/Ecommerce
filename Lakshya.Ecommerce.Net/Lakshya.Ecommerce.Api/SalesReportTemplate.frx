@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates how to print multiple Table rows with a script. To do this:&#13;&#10;- select the Table object;&#13;&#10;- go to the &quot;Properties&quot; window and click the &quot;Events&quot; button to view a list of available events;&#13;&#10;- doubleclick the &quot;ManualBuild&quot; event;&#13;&#10;- you will see an empty event handler. You need to print rows using the &quot;TableObject.PrintRow&quot; method; in each row, you must also print all the columns (using &quot;PrintColumns&quot; method). See the script's code for more details.&#13;&#10;When you run a report, the Table will repeat a row and fill it with data." ReportInfo.Created="01/17/2008 20:40:24" ReportInfo.Modified="06/06/2023 08:22:43" ReportInfo.CreatorVersion="2023.2.16.0">
+<Report ScriptLanguage="CSharp" TextQuality="Regular" ReportInfo.Description="Demonstrates how to print multiple Table rows with a script. To do this:&#13;&#10;- select the Table object;&#13;&#10;- go to the &quot;Properties&quot; window and click the &quot;Events&quot; button to view a list of available events;&#13;&#10;- doubleclick the &quot;ManualBuild&quot; event;&#13;&#10;- you will see an empty event handler. You need to print rows using the &quot;TableObject.PrintRow&quot; method; in each row, you must also print all the columns (using &quot;PrintColumns&quot; method). See the script's code for more details.&#13;&#10;When you run a report, the Table will repeat a row and fill it with data." ReportInfo.Created="01/17/2008 20:40:24" ReportInfo.Modified="06/06/2023 13:56:59" ReportInfo.CreatorVersion="2023.2.16.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace FastReport
     private void Table1_ManualBuild(object sender, EventArgs e)
     {
       // get the data source by its name
-      DataSourceBase rowData = Report.GetDataSource(&quot;Products&quot;);
+      DataSourceBase rowData = Report.GetDataSource(&quot;SalesData&quot;);
       // init the data source
       rowData.Init();
       
@@ -51,7 +51,7 @@ namespace FastReport
 }
 </ScriptText>
   <Dictionary>
-    <TableDataSource Name="Sales" ReferenceName="NorthWind.Products" DataType="System.Int32" Enabled="true">
+    <TableDataSource Name="Sales" ReferenceName="NorthWind.SalesData" DataType="System.Int32" Enabled="true">
       <Column Name="Id" DataType="System.Int32"/>
       <Column Name="Date" DataType="System.String"/>
       <Column Name="ProductName" DataType="System.String"/>
@@ -62,7 +62,6 @@ namespace FastReport
   <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
     <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="66.15" CanGrow="true">
       <TextObject Name="Text2" Top="37.8" Width="718.2" Height="28.35" Text="Sales Report" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 14pt, style=Bold"/>
-      <TextObject Name="Text11" Width="718.2" Height="28.35" Anchor="Top, Left, Right" Fill.Color="WhiteSmoke" CanGrow="true" CanShrink="true" Text="[Report.ReportInfo.Description]&#13;&#10;" Padding="4, 4, 4, 4" Font="Tahoma, 8pt"/>
     </ReportTitleBand>
     <DataBand Name="Data1" Top="68.82" Width="718.2" Height="153.67">
       <TableObject Name="Table1" Left="9.45" Top="11.92" Width="699.3" Height="56.7" ManualBuildEvent="Table1_ManualBuild">
@@ -75,13 +74,13 @@ namespace FastReport
           <TableCell Name="Cell3" Border.Lines="All" Border.Color="LightGray" Fill="Glass" Fill.Color="Gold" Fill.Blend="0.47" Fill.Hatch="false" Text="Quantity" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8pt, style=Bold"/>
         </TableRow>
         <TableRow Name="Row2">
-          <TableCell Name="Cell6" Border.Lines="All" Border.Color="LightGray" Text="[Products.ProductName]" Padding="5, 0, 0, 0" VertAlign="Center" Font="Tahoma, 8pt"/>
-          <TableCell Name="Cell7" Border.Lines="All" Border.Color="LightGray" Text="[Products.Amount]" Padding="0, 0, 5, 0" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8pt"/>
-          <TableCell Name="Cell8" Border.Lines="All" Border.Color="LightGray" Text="[Products.Quantity]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8pt"/>
+          <TableCell Name="Cell6" Border.Lines="All" Border.Color="LightGray" Text="[SalesData.ProductName]" Padding="5, 0, 0, 0" VertAlign="Center" Font="Tahoma, 8pt"/>
+          <TableCell Name="Cell7" Border.Lines="All" Border.Color="LightGray" Text="[SalesData.Amount]" Padding="0, 0, 5, 0" Format="Currency" Format.UseLocale="true" Format.DecimalDigits="2" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8pt"/>
+          <TableCell Name="Cell8" Border.Lines="All" Border.Color="LightGray" Text="[SalesData.Quantity]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8pt"/>
         </TableRow>
         <TableRow Name="Row3">
           <TableCell Name="Cell11" Border.Lines="All" Border.Color="LightGray" Fill.Color="Gold" Text="Total:" VertAlign="Center" Font="Tahoma, 8pt"/>
-          <TableCell Name="Cell12" Border.Lines="All" Border.Color="LightGray" Fill.Color="Gold" Text="[Sum(Cell7)]:" Padding="0, 0, 5, 0" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8pt, style=Bold"/>
+          <TableCell Name="Cell12" Border.Lines="All" Border.Color="LightGray" Fill.Color="Gold" Text="[Sum(Cell7)]" Padding="0, 0, 5, 0" HorzAlign="Right" VertAlign="Center" Font="Tahoma, 8pt, style=Bold"/>
           <TableCell Name="Cell13" Border.Lines="All" Border.Color="LightGray" Fill.Color="Gold" Text="[Sum(Cell8)]" HorzAlign="Center" VertAlign="Center" Font="Tahoma, 8pt, style=Bold"/>
         </TableRow>
       </TableObject>

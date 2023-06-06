@@ -18,6 +18,7 @@ namespace Lakshya.Ecommerce.Api.Controllers
         public async Task<IActionResult> GenerateSalesReport(DateTime startDate, DateTime endDate)
         {
             var reportData = await _salesService.GetSalesData(startDate, endDate).ConfigureAwait(false);
+
             var reportFilePath = _salesService.GenerateReport(reportData);
 
             var fileBytes = System.IO.File.ReadAllBytes(reportFilePath);
