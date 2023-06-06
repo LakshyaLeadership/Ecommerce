@@ -1,6 +1,7 @@
 using Lakshya.Ecommerce.Api.Controllers;
 using Lakshya.Ecommerce.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,13 +13,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<EcommerceDbContext>(optionsBuilder => optionsBuilder.UseSqlite("EcommerceConnection"));
 
+
 var app = builder.Build();
+//using var serviceScope = app.Services.CreateScope();
+//var serviceProvider = serviceScope.ServiceProvider;
+//var dbContext = serviceProvider.GetRequiredService<EcommerceDbContext>();
+//dbContext.Database.EnsureCreated(); // Ensure the database is created
+//dbContext.SeedData(); // Invoke the SeedData method
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

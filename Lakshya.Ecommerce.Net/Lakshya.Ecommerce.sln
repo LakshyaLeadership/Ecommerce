@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lakshya.Ecommerce.Services"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lakshya.Ecommerce.Repositories", "Lakshya.Ecommerce.Repositories\Lakshya.Ecommerce.Repositories.csproj", "{F9E6521E-F3FF-4119-97E5-E1522AE4E1EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lakshya.Ecommerce.Data", "Lakshya.Ecommerce.Data\Lakshya.Ecommerce.Data.csproj", "{9906F649-B5DF-4BE5-904A-5C8F1798639C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F9E6521E-F3FF-4119-97E5-E1522AE4E1EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9E6521E-F3FF-4119-97E5-E1522AE4E1EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9E6521E-F3FF-4119-97E5-E1522AE4E1EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9906F649-B5DF-4BE5-904A-5C8F1798639C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9906F649-B5DF-4BE5-904A-5C8F1798639C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9906F649-B5DF-4BE5-904A-5C8F1798639C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9906F649-B5DF-4BE5-904A-5C8F1798639C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

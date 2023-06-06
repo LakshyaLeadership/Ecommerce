@@ -1,4 +1,4 @@
-﻿using Lakshya.Ecommerce.Services;
+using Lakshya.Ecommerce.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Lakshya.Ecommerce.Api.Controllers
@@ -21,7 +21,7 @@ namespace Lakshya.Ecommerce.Api.Controllers
             var reportFilePath = _salesService.GenerateReport(reportData);
 
             var fileBytes = System.IO.File.ReadAllBytes(reportFilePath);
-            return File(fileBytes, "application/pdf", "sales_report.pdf");
+            return File(fileBytes, "application/pdf", Path.GetFileName(reportFilePath));
         }
     }
 

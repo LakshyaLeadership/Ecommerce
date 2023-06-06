@@ -10,4 +10,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lakshya.Ecommerce.Data\Lakshya.Ecommerce.Data.csproj" />
+  </ItemGroup>
+
 </Project>
