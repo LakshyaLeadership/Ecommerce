@@ -20,10 +20,18 @@
             <input type="checkbox" [checked]="dataItem.Discontinued" disabled />
         </ng-template>
     </kendo-grid-column>
+    <kendo-grid-column field="Category.CategoryName"></kendo-grid-column>
     <!-- ... -->
 </kendo-grid>
 
 <hr/>
-<h4> Now Dropdownlist</h4>
+<h4>Now  which can filter</h4>
 <h4></h4>
-
+<kendo-dropdownlist
+    [data]="dropDownItems"
+    (valueChange)="handleFilterChange($event)"
+    [defaultItem]="defaultItem"
+    textField="text"
+    valueField="value"
+>
+</kendo-dropdownlist>

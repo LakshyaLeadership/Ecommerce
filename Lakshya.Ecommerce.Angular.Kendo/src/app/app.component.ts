@@ -3,12 +3,13 @@ import { ProductService } from './product.service';
 import { GridDataResult, PageChangeEvent } from '@progress/kendo-angular-grid';
 import { SortDescriptor } from '@progress/kendo-data-query';
 import { Observable, of } from 'rxjs';
+import { categories } from './data.categories';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ProductService]
+  providers: [ProductService],
 })
 export class AppComponent {
   public gridItems: Observable<GridDataResult>;
@@ -19,24 +20,33 @@ export class AppComponent {
 
   constructor(private service: ProductService) {
     this.loadGridItems();
-}
+  }
 
-public pageChange(event: PageChangeEvent): void {
+  public pageChange(event: PageChangeEvent): void {
     this.skip = event.skip;
     this.loadGridItems();
-}
+  }
 
-public handleSortChange(descriptor: SortDescriptor[]): void {
+  public handleSortChange(descriptor: SortDescriptor[]): void {
     this.sortDescriptor = descriptor;
     this.loadGridItems();
-}
+  }
 
-private loadGridItems(): void {
+  private loadGridItems(): void {
     this.gridItems = this.service.getProducts(
       this.skip,
       this.pageSize,
       this.sortDescriptor,
       this.filterTerm
     );
-}
+  }
+
+  public dropDownItems = categories;
+  public defaultItem = { text: 'Filter by Category', value: null };
+
+  public handleFilterChange(item: any): void {
+    this.filterTerm = item.value;
+    this.skip = 0;
+    this.loadGridItems();
+  }
 }
