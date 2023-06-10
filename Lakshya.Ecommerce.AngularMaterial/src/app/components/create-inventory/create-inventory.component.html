@@ -1,0 +1,63 @@
+<form [formGroup]="createInventoryForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Supplier Name</mat-label>
+    <input matInput formControlName="supplierName" autocomplete="off" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" />
+    <mat-error *ngIf="createInventoryForm.get('name').invalid">
+      Name is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>SKU</mat-label>
+    <input matInput formControlName="sku" />
+    <mat-error *ngIf="createInventoryForm.get('sku').invalid">
+      SKU is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Supplier Email</mat-label>
+    <input matInput formControlName="supplierEmail" />
+    <mat-error *ngIf="createInventoryForm.get('supplierEmail').invalid">
+      Please enter a valid email address.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Start Date</mat-label>
+    <input matInput [matDatepicker]="startDatePicker" formControlName="startDate" />
+    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #startDatePicker></mat-datepicker>
+    <mat-error *ngIf="createInventoryForm.get('startDate').invalid">
+      Start Date is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>End Date</mat-label>
+    <input matInput [matDatepicker]="endDatePicker" formControlName="endDate" />
+    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+    <mat-datepicker #endDatePicker></mat-datepicker>
+    <mat-error *ngIf="createInventoryForm.get('endDate').invalid">
+      End Date is required.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="category">
+      <mat-option value="">-- Select Category --</mat-option>
+      <!-- Add mat-options for categories -->
+    </mat-select>
+    <mat-error *ngIf="createInventoryForm.get('category').invalid">
+      Category is required.
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Submit</button>
+</form>
