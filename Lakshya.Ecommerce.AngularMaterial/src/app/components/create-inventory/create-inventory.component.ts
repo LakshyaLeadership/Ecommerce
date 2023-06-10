@@ -19,7 +19,7 @@ export class CreateInventoryComponent implements OnInit {
       supplierEmail: ['', [Validators.required, Validators.email]],
       startDate: ['', Validators.required],
       endDate: ['', Validators.required],
-      category: ['', Validators.required]
+      category: ['']
     });
   }
 
@@ -30,5 +30,6 @@ export class CreateInventoryComponent implements OnInit {
       // Call the API with the form data
       // ...
     }
+    console.log(JSON.stringify(this.createInventoryForm.value));
   }
 }
